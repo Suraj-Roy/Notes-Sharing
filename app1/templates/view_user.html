@@ -1,0 +1,55 @@
+{% extends 'adminnav.html' %}
+
+{% block body %}
+
+
+<div class="container-fluid " >
+
+  <div  class="container my-4 table-responsive" >
+  
+     <table class="table table-bordered " id="example" >
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact No.</th>
+            <th scope="col">Branch </th>
+            <th scope="col">Roll</th>
+            
+            
+            <th scope="col" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+          {% for fm in fields %}  
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{fm.user.first_name}} {{fm.user.last_name}}</td>
+            
+            <td>{{fm.user.username}}</td>
+            <td>{{fm.contact}}</td>
+            <td>{{fm.branch}}</td>
+            <td>{{fm.role}}</td>
+            
+            
+            <td><a onclick="confirmation(event)" type="button" data-id="{% url 'delete' fm.user.id %}" href="{% url 'delete' fm.id %}"  class="btn btn-warning">delete</a></td>
+            
+            
+      
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table> 
+      
+      
+
+    </div>
+    </div>
+    
+    
+
+{% endblock body %}

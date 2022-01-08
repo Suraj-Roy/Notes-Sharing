@@ -1,0 +1,49 @@
+{% extends 'usernav.html' %}
+
+{% block body %}
+
+<div class="container-fluid " >
+
+  <div class="container my-4 table-responsive">
+  
+     <table class="table table-bordered " id="example">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Uploaded By </th>
+            <th scope="col">Uploading Date</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Download </th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+          {% for fm in fields %}  
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{fm.user.first_name}} {{fm.user.last_name}}</td>
+            <td>{{fm.uploadingdate}}</td>
+            
+            <td>{{fm.branch}}</td>
+            <td>{{fm.subject}}</td>
+            <td><a type="button"  href="{{fm.notesfile.url}}" class="btn btn-warning">Download</a></td>
+            
+            
+            
+      
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table> 
+      
+      
+
+    </div>
+    </div>
+    
+
+{% endblock body %}

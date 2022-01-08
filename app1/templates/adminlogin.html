@@ -1,0 +1,33 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid login">
+
+<div class="container col-md-6 py-4 op">
+<div class="card cardbody p-4 shadow op">
+<h1 class="text-center">Admin Login</h1>
+<hr>
+<form method="POST">
+{% csrf_token %}
+  <div class="mb-3 p-2">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="textHelp" name="username">
+    
+  </div>
+  <div class="mb-3 p-2">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  
+  <div class="p-4 d-grid gap-2 col-6 mx-auto">
+  <button type="submit" class="btn  btn-outline-dark ">Submit</button>
+  </div>
+</form>
+</div>
+
+</div> 
+</div> 
+
+
+
+{% endblock body %}

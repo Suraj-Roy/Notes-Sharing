@@ -1,0 +1,52 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block body %}
+{% comment %} <div class="image position-relative" >
+
+<div class=" position-absolute top-50 start-50 translate-middle bg-warning">
+<h2 class="text-danger p-4 fst fw-bold">Study Notes Sharing Site</h2>
+</div>
+</div> {% endcomment %}
+{% include 'coursel.html' %}
+
+<div class="text-center text-danger   mt-2">
+  <h2 class="fst fw-bold">Just 4 Steps to follow</h2>
+  
+</div>
+<hr>
+
+<div class="container my-2">
+<div class="row">
+
+<div class="col-sm-2 mx-auto mt-2">
+<div class="card card-body rounded-circle shadow mx-auto" style="background-color:green; height:150px; width:150px;">
+<img src="{% static "images/user.png" %}" alt="" class="mx-auto" style="height:75px; width:75px;">
+<span class="text-center text-white fw-bold fst">Create Account</span>
+</div>
+</div>
+
+<div class="col-sm-2 mx-auto mt-2">
+<div class="card card-body rounded-circle shadow mx-auto" style="background-color:green; height:150px; width:150px;">
+<img src="{% static "images/login.png" %}" alt="" class="mx-auto" style="height:75px; width:75px;">
+<span class="text-center text-white fw-bold fst">Login</span>
+</div>
+</div>
+
+<div class="col-sm-2 mx-auto mt-2">
+<div class="card card-body rounded-circle shadow mx-auto" style="background-color:green;  height:150px; width:150px;">
+<img src="{% static "images/upload.png" %}" alt="" class="mx-auto" style="height:75px; width:75px;">
+<span class="text-center text-white fw-bold fst">Upload Notes</span>
+</div>
+</div>
+
+<div class="col-sm-2 mx-auto mt-2">
+<div class="card card-body rounded-circle shadow mx-auto" style="background-color:green;  height:150px; width:150px;">
+<img src="{% static "images/download.png" %}" alt="" class="mx-auto" style="height:75px; width:75px;">
+<span class="text-center text-white fw-bold fst">Download Notes</span>
+</div>
+</div>
+
+
+</div>
+</div>
+{% endblock body %}

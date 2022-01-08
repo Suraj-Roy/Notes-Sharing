@@ -1,0 +1,67 @@
+{% extends 'nav.html' %}
+
+{% block body %}
+<div class="container-fluid" style="background-color:rgb(224, 203, 156)">
+<div class="container col-md-6 py-4">
+<div class="card cardbody p-4 shadow">
+<h1 class="text-center">User Registration</h1>
+
+<hr>
+<form method="POST">
+    {% csrf_token %}
+    {% if error_message is not None%}
+    <div class="alert alert-danger">
+    {{error_message}}
+    </div>
+    {% endif %}
+   
+   <div class="mb-3">
+    <label for="exampleInputfn" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="exampleInputfn" aria-describedby="emailHelp" required name="fn">
+    
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputlastname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="examplelastname" aria-describedby="emailHelp"  name="ln">
+    
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" required id="exampleInputPassword1" name="password">
+  </div>
+
+  <div class="mb-3">
+    <label for="examplemob" class="form-label">Mob No.</label>
+    <input type="text" class="form-control" id="examplemob" aria-describedby="emailHelp" required name="mob">
+    
+  </div>
+
+  <div class="mb-3">
+    <label for="examplebrch" class="form-label">Branch</label>
+    <input type="text" class="form-control" id="examplebrch" aria-describedby="emailHelp" required name="brch">
+    
+  </div>
+
+  <div class="mb-3">
+    <label for="examplerole" class="form-label">Roll</label>
+    <input type="text" class="form-control" id="examplerole" aria-describedby="emailHelp" required name="role">
+  </div> 
+  <div class="p-4 d-grid gap-2 col-6 mx-auto">
+  <input type="submit" class="btn  btn-outline-dark ">
+  </div>
+  
+</form>
+</div>
+</div>
+</div> 
+
+
+
+{% endblock body %}

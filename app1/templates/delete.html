@@ -1,0 +1,58 @@
+{% extends 'usernav.html' %}
+
+{% block body %}
+<div class="container-fluid " >
+
+  <div class="container my-4">
+  <h2 class="text-center">ARE YU SURE, WANT'S TO DELETE? </h2>
+     <table class="table  table-striped ">
+  <thead class="table-dark">
+    <tr>
+           
+            <th scope="col">Uploading Date</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Subject</th>
+            
+            <th scope="col">File Type</th>
+            <th scope="col">Status</th>
+            
+            <th scope="col" >Cancel</th>
+            <th scope="col" >Confirm Delete</th>
+          </tr>
+  </thead>
+
+  
+  <tbody>
+    <tr>
+            
+            <td>{{item.uploadingdate}}</td>
+            
+            <td>{{item.branch}}</td>
+            <td>{{item.subject}}</td>
+            <td>{{item.filetype}}</td>
+            <td>{{item.status}}</td>
+            
+            
+
+      <td><a type="button" href="{% url 'viewnotes' %}" class="btn btn-warning">Cancel</a></td>
+      <td><form action="" method='POST'>
+            {% csrf_token %}
+    
+        <input type="submit" class="btn btn-danger" name="Confirm" >
+        </form></td>
+    </tr>
+    
+  </tbody>
+  
+
+
+</table>
+      
+      
+
+    </div>
+    </div>
+
+
+
+{% endblock body %}

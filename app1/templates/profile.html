@@ -1,0 +1,31 @@
+{% extends 'usernav.html' %}
+{% load static %}
+{% block body %}
+<div class="container-fluid" style="background-color:rgb(224, 203, 156)">
+
+<div class="container col-md-6 py-4">
+<div class="card cardbody p-4 shadow">
+<h1 class="text-center fst">User Profile</h1>
+<hr>
+
+<div class="mx-auto p-2">
+<img src="{{field2.photo.url}}" class="img-thumbnail d-block shadow" alt="..." style="height:150px;">
+<div class="fw-bold fst p-2"><span>Name:</span> {{field1.first_name}} {{field1.last_name}}</div>
+{% if field2 %}
+<div class="fw-bold fst p-2"><span>Roll:</span> {{field2.role}}</div>
+<div class="fw-bold fst p-2"><span>Branch:</span> {{field2.branch}}</div>
+<div class="fw-bold fst p-2"><span>Contact:</span> {{field2.contact}}</div>
+{% else %}
+<div class="fw-bold fst p-2"><span>Roll:</span> Please Edit Profile</div>
+<div class="fw-bold fst p-2"><span>Branch:</span> Please Edit Profile</div>
+<div class="fw-bold fst p-2"><span>Contact:</span> Please Edit Profile</div>
+{% endif %}
+<div class="fw-bold fst p-2"><span>Email:</span> {{field1.username}}</div>
+</div>
+</div> 
+</div> 
+</div> 
+
+
+
+{% endblock body %}

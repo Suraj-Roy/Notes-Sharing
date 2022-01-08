@@ -1,0 +1,76 @@
+{% extends 'usernav.html' %}
+
+{% block body %}
+
+<div class="container-fluid " >
+
+  <div class="container my-4 table-responsive">
+  
+     <table class="table table-bordered" id="example">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Uploading Date</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Download </th>
+            <th scope="col">File Type</th>
+            <th scope="col">Status</th>
+            
+            <th scope="col" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+          {% for fm in fields %}  
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{fm.uploadingdate}}</td>
+            
+            <td>{{fm.branch}}</td>
+            <td>{{fm.subject}}</td>
+            <td><a type="button"  href="{{fm.notesfile.url}}" class="btn btn-warning">Download</a></td>
+            <td>{{fm.filetype}}</td>
+            <td>{{fm.status}}</td>
+            <td><a onclick="confirmation(event)" type="button" data-id="{% url 'delete' fm.id %}" href="{% url 'delete' fm.id %}"  class="btn btn-warning">delete</a></td>
+            
+            
+      
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table> 
+      
+      
+
+    </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+    function confirmation(ev) {
+ev.preventDefault();
+var urlToRedirect = ev.currentTarget.getAttribute('href'); //use currentTarget because the click may be on the nested i tag and not a tag causing the href to be empty
+console.log(urlToRedirect); // verify if this is the right URL
+swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  
+  if (willDelete) {
+    window.location.href=urlToRedirect;
+    swal("Poof! Your imaginary file has been deleted!", {
+      icon: "success",
+    });
+  } else {
+    swal("Your imaginary file is safe!");
+  }
+});
+}</script>
+
+{% endblock body %}

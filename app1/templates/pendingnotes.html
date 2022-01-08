@@ -1,0 +1,63 @@
+{% extends 'adminnav.html' %}
+
+{% block body %}
+
+
+<div class="container-fluid " >
+
+  <div  class="container my-4 table-responsive" >
+  
+     <table class="table table-bordered " id="example" >
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Status</th>
+            <th scope="col" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+          {% for fm in fields %}  
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{fm.user.first_name}} {{fm.user.last_name}}</td>
+            
+            <td><a type="button"  href="{{fm.notesfile.url}}" class="btn btn-warning">Read</a></td>
+            
+            <td>{{fm.status}}</td>
+            <td><!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Action
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'delete' fm.id %}">delete</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="{% url 'status' fm.id 'Accepted' %}">Accept</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="{% url 'status' fm.id 'Rejected' %}">Reject</a></li>
+    
+    
+    
+  </ul>
+</div></td>
+            
+            
+      
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table> 
+      
+      
+
+    </div>
+    </div>
+    
+    
+
+{% endblock body %}

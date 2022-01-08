@@ -1,0 +1,40 @@
+{% extends 'nav.html' %}
+
+{% block body %}
+<div class="container-fluid login">
+
+<div class="container col-md-6 py-4">
+<div class="card cardbody p-4 shadow">
+<h1 class="text-center ">User Login</h1>
+
+<hr>
+{% for message in messages %}
+<div class="alert alert-danger">
+{{message}}
+</div>
+{% endfor %}
+<form method="POST">
+{% csrf_token %}
+
+  <div class="mb-3 p-2">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+    
+  </div>
+  <div class="mb-3 p-2">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <a href="{% url 'register' %}">create account</a>
+  <div class="p-4 d-grid gap-2 col-6 mx-auto">
+  <input type="submit" class="btn  btn-outline-dark ">
+  </div>
+</form>
+</div>
+
+</div> 
+</div> 
+
+
+
+{% endblock body %}
